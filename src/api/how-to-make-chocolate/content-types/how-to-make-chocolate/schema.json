@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "how_to_make_chocolates",
+  "info": {
+    "singularName": "how-to-make-chocolate",
+    "pluralName": "how-to-make-chocolates",
+    "displayName": "How to Make Chocolate"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

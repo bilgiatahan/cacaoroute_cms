@@ -774,13 +774,14 @@ export interface ApiAboutSectionAboutSection extends Schema.SingleType {
     singularName: 'about-section';
     pluralName: 'about-sections';
     displayName: 'About Section';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
+    title: Attribute.String & Attribute.Required;
+    content: Attribute.Blocks & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -824,6 +825,39 @@ export interface ApiBoxProductBoxProduct extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::box-product.box-product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHowToMakeChocolateHowToMakeChocolate
+  extends Schema.SingleType {
+  collectionName: 'how_to_make_chocolates';
+  info: {
+    singularName: 'how-to-make-chocolate';
+    pluralName: 'how-to-make-chocolates';
+    displayName: 'How to Make Chocolate';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    content: Attribute.Blocks & Attribute.Required;
+    images: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::how-to-make-chocolate.how-to-make-chocolate',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::how-to-make-chocolate.how-to-make-chocolate',
       'oneToOne',
       'admin::user'
     > &
@@ -949,6 +983,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-section.about-section': ApiAboutSectionAboutSection;
       'api::box-product.box-product': ApiBoxProductBoxProduct;
+      'api::how-to-make-chocolate.how-to-make-chocolate': ApiHowToMakeChocolateHowToMakeChocolate;
       'api::main-slider.main-slider': ApiMainSliderMainSlider;
       'api::menu.menu': ApiMenuMenu;
       'api::popular-menu-section.popular-menu-section': ApiPopularMenuSectionPopularMenuSection;

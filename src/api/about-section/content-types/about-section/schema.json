@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about-section",
     "pluralName": "about-sections",
-    "displayName": "About Section"
+    "displayName": "About Section",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,10 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
-    "description": {
-      "type": "text"
+    "content": {
+      "type": "blocks",
+      "required": true
     }
   }
 }

@@ -4,10 +4,18 @@ export interface CommonCategory extends Schema.Component {
   collectionName: 'components_common_categories';
   info: {
     displayName: 'Category';
+    description: '';
   };
   attributes: {
     category: Attribute.Enumeration<
-      ['Hot Chocolate', 'Coffee', 'Cold Drinks', 'Sweet Items', 'Savoury Items']
+      [
+        'Hot Chocolate',
+        'Coffee',
+        'Cold Drinks',
+        'Sweet Items',
+        'Savoury Items',
+        'Homemade'
+      ]
     > &
       Attribute.Required;
   };
